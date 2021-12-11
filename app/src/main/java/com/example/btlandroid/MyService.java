@@ -1,4 +1,4 @@
-package com.example.baitaplon;
+package com.example.btlandroid;
 
 import android.app.Service;
 import android.content.Intent;

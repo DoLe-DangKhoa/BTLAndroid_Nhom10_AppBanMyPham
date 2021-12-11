@@ -1,6 +1,4 @@
-package com.example.baitaplon;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.btlandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +8,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Screen5 extends AppCompatActivity {
 
     ListView listviewsanpham;
-    ArrayList<SanPham> arrayList;
+    ArrayList<com.example.btlandroid.SanPham> arrayList;
     AdapterSanPham_Screen5 adapter;
 
     private Button btnDathang;
@@ -28,7 +28,7 @@ public class Screen5 extends AppCompatActivity {
     private EditText edtQuan;
     private EditText edtPhuong;
     private EditText edtDiachi;
-    private List<Thanhtoan_sc5> thanhtoanList;
+    private List<com.example.btlandroid.Thanhtoan_sc5> thanhtoanList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,7 @@ public class Screen5 extends AppCompatActivity {
         listviewsanpham = findViewById(R.id.listViewS5);
         arrayList = new ArrayList<>();
 
-        arrayList.add(new SanPham(gia,hinh,soluong));
+        arrayList.add(new com.example.btlandroid.SanPham(gia,hinh,soluong));
         adapter = new AdapterSanPham_Screen5(Screen5.this,R.layout.custome_screen5,arrayList);
         listviewsanpham.setAdapter(adapter);
         btnDathang = findViewById(R.id.btnDat);
@@ -56,7 +56,7 @@ public class Screen5 extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Screen5.this,Screen04.class);
+                Intent i = new Intent(Screen5.this, com.example.btlandroid.Screen04.class);
                 startActivity(i);
             }
         });
@@ -64,7 +64,7 @@ public class Screen5 extends AppCompatActivity {
     }
 
     private void handleBtnDat() {
-        Thanhtoan_sc5 thanhtoan = new Thanhtoan_sc5();
+        com.example.btlandroid.Thanhtoan_sc5 thanhtoan = new com.example.btlandroid.Thanhtoan_sc5();
         thanhtoan.setHo(String.valueOf(edtHo.getText()));
         thanhtoan.setTen(String.valueOf(edtTen.getText()));
         thanhtoan.setSdt(Integer.parseInt(edtSDT.getText().toString()));

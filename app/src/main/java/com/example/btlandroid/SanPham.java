@@ -1,4 +1,4 @@
-package com.example.baitaplon;
+package com.example.btlandroid;
 
 public class SanPham {
     private String ten;

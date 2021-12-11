@@ -1,19 +1,17 @@
-package com.example.baitaplon;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.btlandroid;
 
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -26,12 +24,12 @@ public class Screen03 extends AppCompatActivity {
     double tongtien;
     String gia;
     Button btnTru, btnCong,btnThemVaoGioHang;
-    private MyService myService;
+    private com.example.btlandroid.MyService myService;
     private boolean isconnect = false;
     private ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            MyService.MyBinder binder = (MyService.MyBinder) iBinder;
+            com.example.btlandroid.MyService.MyBinder binder = (com.example.btlandroid.MyService.MyBinder) iBinder;
             myService = binder.getService();
             isconnect = true;
         }
@@ -57,7 +55,7 @@ public class Screen03 extends AppCompatActivity {
         listviewsanpham.setAdapter(adapter);
 
         tvSoLuong = findViewById(R.id.tvSoLuong);
-        Intent intent = new Intent(Screen03.this, MyService.class);
+        Intent intent = new Intent(Screen03.this, com.example.btlandroid.MyService.class);
         bindService(intent, mConnection, BIND_AUTO_CREATE);
         btnCong = findViewById(R.id.btnCong);
         btnCong.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +88,7 @@ public class Screen03 extends AppCompatActivity {
         btnThemVaoGioHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Screen03.this,Screen04.class);
+                Intent intent = new Intent(Screen03.this, com.example.btlandroid.Screen04.class);
                 intent.putExtra("hinh",hinh);
                 intent.putExtra("gia",gia);
                 intent.putExtra("soluong",tvSoLuong.getText().toString());

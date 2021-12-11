@@ -1,4 +1,4 @@
-package com.example.baitaplon;
+package com.example.btlandroid;
 
 public class Thanhtoan_sc5 {
     private String ho;
